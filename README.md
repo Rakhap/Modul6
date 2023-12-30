@@ -1,4 +1,4 @@
-# Prak Modul6
+# Prak UAP Mechine learning 
 dataset RPS mengambil dari modul sebelumnya
 terdapat 3 class didalamnya berupa 
 
