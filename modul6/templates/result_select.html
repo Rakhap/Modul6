@@ -1,29 +1,109 @@
-   <!-- Table-section -->
-   <section class="contact-section" id="result" style="padding-bottom: 50px;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        body {
+            background-color: #D3D3D3;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .contact-section {
+            padding-bottom: 50px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .title-box {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            font-size: 30px;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+            background-color: rgb(158, 22, 22);
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .inner-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form-area {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        .result-label {
+            color: #333;
+            text-transform: capitalize;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .result-details {
+            color: #555;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .sidebar-content {
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-image-text {
+            font-size: 20px;
+            margin-top: 10px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <section class="contact-section" id="result">
         <div class="container">
-            <div class="title-box centred" style="padding-top: 5px; padding-bottom: 5px;">
-                <div class="sec-title">Prediction Result</div>
-            </div>
-            <div class="row" >
+            <div class="title-box">Prediction Result</div>
+            <div class="row">
                 <div class="col-lg-8 col-md-12 col-sm-12 content-column">
                     <div class="inner-content">
                         <div class="contact-form-area">
-                            <p style="margin: unset; padding: none; color: black; text-transform: capitalize; font-size: 25px; font-weight: bold;">{{ model }} Model</p>
-                            <p style="margin: unset; padding: none; color: black; text-transform: capitalize; font-size: medium; font-weight: bold;"> Predicted Label is: {{ labels[pred] }}</p>
-                            Accuracy : {{ (probs|max) }}% | Prediction Time : {{ (run_time) }} second
+                            <p class="result-label">Predicted Label:</p>
+                            <p style="color: #007bff; font-size: 24px; font-weight: bold;">{{ labels[pred] }}</p>
+                            <p class="result-details">Accuracy: {{ (probs|max) }}% | Prediction Time: {{ (run_time) }} second</p>
                             <input type="hidden" id="probability" value={{(probs|max)}}>
-                            <div id="myProgress">
-                                <div id="myBar">0%</div>
-                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12 col-sm-12 sidebar-column">
                     <div class="sidebar-content">
-                        <img src="{{ url_for('static', filename=img) }}" alt="" class="img-fluid" style="height:300px; width:300px;">
-                        <p style="font-size:25px;text-align:center;">Input Image</p>
+                        <img src="{{ url_for('static', filename=img) }}" alt="" class="img-fluid">
+                        <p class="result-image-text">Result Image</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+</body>
+</html>
